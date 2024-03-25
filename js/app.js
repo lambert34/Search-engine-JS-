@@ -11,6 +11,10 @@ const mainEl = document.querySelector(".main");
 // добавить ко всем этим 
 
 const formEl = document.createElement("form");
+formEl.classList.add('search');
+formEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+})
 
 
 const inputEl = document.createElement("input");
