@@ -19,7 +19,12 @@ formEl.addEventListener('submit', async (e) => {
 const inputsValue = Object.fromEntries(new FormData(e.target));
 const response = await fetch(`https://api.github.com/users/${inputsValue.name}`);
 
+if (response.ok) {
 const data = await response.json();
+// Использовать функцию для отрисовки данных
+} else {
+    alert("Пользователь не найден");
+}
 
 })
 
