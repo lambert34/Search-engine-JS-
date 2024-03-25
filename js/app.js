@@ -1,4 +1,5 @@
 const mainEl = document.querySelector(".main");
+const wrapper = document.createElement('div');
 
 // написать форму 
 // написать input
@@ -52,8 +53,16 @@ function createProfileEl(profileData) {
     <p class="search-text"><span>Город: </span>${profileData.location}</p>
     <p class="search-text"><span>О себе: </span>${profileData.bio}</p>
     `;
+
+    element.appendChild(createDeleteBtn())
+    return element;
 }
 
 function createDeleteBtnEl() {
-
+    const element = document.createElement('button');
+    element.classList.add('delete-button');
+    element.innerText = 'Удалить';
+    element.addEventListener('click', (e) =>{
+    })
+    return element;
 }
