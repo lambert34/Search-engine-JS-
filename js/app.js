@@ -19,6 +19,8 @@ formEl.addEventListener('submit', async (e) => {
 const inputsValue = Object.fromEntries(new FormData(e.target));
 const response = await fetch(`https://api.github.com/users/${inputsValue.name}`);
 
+const data = await response.json();
+
 })
 
 
