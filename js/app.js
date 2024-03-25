@@ -15,20 +15,20 @@ const formEl = document.createElement("form");
 formEl.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-//логика фетч-запроса
-const inputsValue = Object.fromEntries(new FormData(e.target));
-const response = await fetch(`https://api.github.com/users/${inputsValue.name}`);
+    //логика фетч-запроса
+    const inputsValue = Object.fromEntries(new FormData(e.target));
+    const response = await fetch(`https://api.github.com/users/${inputsValue.name}`);
 
-if (response.ok) {
-const data = await response.json();
-wrapper.appendChild(createProfileEl(data))
-mainEl.appendChild(wrapper);
-inputEl.value = "";
-// Использовать функцию для отрисовки данных
-// Добавить результат выше исполненной функции в mainEl
-} else {
-    alert("Пользователь не найден");
-}
+    if (response.ok) {
+        const data = await response.json();
+        wrapper.appendChild(createProfileEl(data))
+        mainEl.appendChild(wrapper);
+        inputEl.value = "";
+        // Использовать функцию для отрисовки данных
+        // Добавить результат выше исполненной функции в mainEl
+    } else {
+        alert("Пользователь не найден");
+    }
 
 })
 
@@ -47,7 +47,7 @@ formEl.appendChild(searchButtonEl);
 mainEl.appendChild(formEl);
 
 function createProfileEl(profileData) {
-    const element = document.querySelector('div');
+    const element = document.createElement('div');
     element.classList.add('profile');
     element.innerHTML = `
     <img class="search-image" src=${profileData.avatar_url}></img>
@@ -56,7 +56,7 @@ function createProfileEl(profileData) {
     <p class="search-text"><span>О себе: </span>${profileData.bio}</p>
     `;
 
-    element.appendChild(createDeleteBtn())
+    element.appendChild(createDeleteBtnEl());
     return element;
 }
 
@@ -64,7 +64,8 @@ function createDeleteBtnEl() {
     const element = document.createElement('button');
     element.classList.add('delete-button');
     element.innerText = 'Удалить';
-    element.addEventListener('click', (e) =>{
+    element.addEventListener('click', (e) => {
+        wrapper.innerHTML = '';
     })
     return element;
 }
