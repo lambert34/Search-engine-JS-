@@ -17,6 +17,7 @@ formEl.addEventListener('submit', async (e) => {
 
     //логика фетч-запроса
     const inputsValue = Object.fromEntries(new FormData(e.target));
+    // метод Обджект-форм-Энтрис позволяет собирать все данные инпутов в один объект
     const response = await fetch(`https://api.github.com/users/${inputsValue.name}`);
 
     if (response.ok) {
