@@ -22,6 +22,8 @@ const response = await fetch(`https://api.github.com/users/${inputsValue.name}`)
 
 if (response.ok) {
 const data = await response.json();
+wrapper.appendChild(createProfileEl(data))
+mainEl.appendChild(wrapper);
 // Использовать функцию для отрисовки данных
 // Добавить результат выше исполненной функции в mainEl
 } else {
