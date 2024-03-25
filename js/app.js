@@ -12,7 +12,6 @@ const wrapper = document.createElement('div');
 // добавить ко всем этим 
 
 const formEl = document.createElement("form");
-formEl.classList.add('search');
 formEl.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -24,6 +23,7 @@ if (response.ok) {
 const data = await response.json();
 wrapper.appendChild(createProfileEl(data))
 mainEl.appendChild(wrapper);
+inputEl.value = "";
 // Использовать функцию для отрисовки данных
 // Добавить результат выше исполненной функции в mainEl
 } else {
@@ -34,7 +34,7 @@ mainEl.appendChild(wrapper);
 
 
 const inputEl = document.createElement("input");
-inputEl.classList.add('.search-input');
+inputEl.classList.add('search-input');
 inputEl.setAttribute('name', 'name');
 
 const searchButtonEl = document.createElement("button");
