@@ -14,6 +14,10 @@ const formEl = document.createElement("form");
 formEl.classList.add('search');
 formEl.addEventListener('submit', (e) => {
     e.preventDefault();
+
+//логика фетч-запроса
+const inputsValue = Object.fromEntries(new FormData(e.target));
+
 })
 
 
