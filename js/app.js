@@ -11,8 +11,17 @@ const mainEl = document.querySelector(".main");
 // добавить ко всем этим 
 
 const formEl = document.createElement("form");
+
+
 const inputEl = document.createElement("input");
+inputEl.classList.add('.search-input');
+// inputEl.setAttribute('name', 'name');
+
 const searchButtonEl = document.createElement("button");
+searchButtonEl.classList.add('search-button');
+searchButtonEl.setAttribute('type', 'submit');
+searchButtonEl.innerHTML = "Поиск";
+
 
 formEl.appendChild(inputEl);
 formEl.appendChild(searchButtonEl);
